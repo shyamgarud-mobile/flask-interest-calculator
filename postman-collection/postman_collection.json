@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "e4a8f7b1-ce6c-4b62-a7b5-69e2b3b1e3a4",
+		"name": "Interest Calculator API",
+		"description": "A collection for testing the Interest Calculator API with all CRUD operations and interest calculation.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Calculate Interest",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"principal\": 1000,\n    \"rate\": 5.5,\n    \"time_period\": 12\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/loans/calculate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"loans",
+						"calculate"
+					]
+				},
+				"description": "Calculate simple interest without creating a database record"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Loans",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/loans/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"loans",
+						""
+					]
+				},
+				"description": "Retrieve all loan records from the database"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Loan by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/loans/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"loans",
+						"1"
+					]
+				},
+				"description": "Retrieve a specific loan by its ID"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Loan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"principal\": 5000,\n    \"rate\": 4.5,\n    \"time_period\": 24\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/loans/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"loans",
+						""
+					]
+				},
+				"description": "Create a new loan record with calculated interest"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Loan",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"principal\": 6000,\n    \"rate\": 5.0\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/loans/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"loans",
+						"1"
+					]
+				},
+				"description": "Update an existing loan record (interest will be recalculated automatically)"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Loan",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/loans/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"loans",
+						"1"
+					]
+				},
+				"description": "Delete a loan record by ID"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:5000",
+			"type": "string"
+		}
+	]
+}
